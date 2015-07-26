@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer_id %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @order.supplier_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @order.date %>
+</p>
+
+<p>
+  <strong>Total order value:</strong>
+  <%= @order.total_order_value %>
+</p>
+
+<p>
+  <strong>Local currency code:</strong>
+  <%= @order.local_currency_code %>
+</p>
+
+<p>
+  <strong>Local value:</strong>
+  <%= @order.local_value %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @order.value %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
