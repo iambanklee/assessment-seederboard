@@ -1,3 +1,8 @@
+PATH
+  remote: /Users/bank/Projects/ror/open_exchange_rate_checker
+  specs:
+    open_exchange_rate_checker (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -204,6 +209,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  open_exchange_rate_checker!
   pg
   rails (= 4.2.1)
   rspec

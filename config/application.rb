@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Seederboard
   class Application < Rails::Application
+    # http://stackoverflow.com/questions/19098663/auto-loading-lib-files-in-rails-4
+    # Auto-loading lib files in Rails 4
+    config.autoload_paths << Rails.root.join('lib')
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

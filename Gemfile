@@ -49,3 +49,5 @@ end
 group :development do
   gem 'guard-rspec', require: false
 end
+
+gem 'open_exchange_rate_checker', path: '/Users/bank/Projects/ror/open_exchange_rate_checker'
