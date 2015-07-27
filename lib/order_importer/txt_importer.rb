@@ -1,13 +1,14 @@
 require 'csv'
-require 'order_importer/order_calculator'
 
 module OrderImporter
-  module CsvImporter
+  module TxtImporter
     extend OrderImporter::Convertible
     extend OrderImporter::OrderCalculator
 
+    # The Txt order format is similiar to Csv one but separated by ';'
+    # So use Csv to parse the txt file
     def self.import(file)
-      CSV.foreach(file.path, headers: true) do |row|
+      CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
         order_hash = {}
         prepare_order(order_hash, row)
 
@@ -25,5 +26,6 @@ module OrderImporter
 
       # calculate(order_hash)
     end
+
   end
 end
