@@ -1,5 +1,4 @@
 require 'csv'
-require 'order_importer/order_calculator'
 
 module OrderImporter
   module CsvImporter
