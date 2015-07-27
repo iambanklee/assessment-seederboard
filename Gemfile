@@ -51,3 +51,4 @@ group :development do
 end
 
 gem 'open_exchange_rate_checker', path: '/Users/bank/Projects/ror/open_exchange_rate_checker'
+gem 'bootstrap-sass'

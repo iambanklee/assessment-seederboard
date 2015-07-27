@@ -7,8 +7,6 @@ RSpec.describe "orders/edit", type: :view do
       :supplier_id => 1,
       :total_order_value => "9.99",
       :local_currency_code => "MyString",
-      :local_value => "MyString",
-      :decimal => "MyString",
       :value => "9.99"
     ))
   end
@@ -25,10 +23,6 @@ RSpec.describe "orders/edit", type: :view do
       assert_select "input#order_total_order_value[name=?]", "order[total_order_value]"
 
       assert_select "input#order_local_currency_code[name=?]", "order[local_currency_code]"
-
-      assert_select "input#order_local_value[name=?]", "order[local_value]"
-
-      assert_select "input#order_decimal[name=?]", "order[decimal]"
 
       assert_select "input#order_value[name=?]", "order[value]"
     end
