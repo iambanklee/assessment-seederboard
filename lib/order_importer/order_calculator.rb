@@ -1,3 +1,4 @@
+require 'bigdecimal'
 require 'open_exchange_rate_checker'
 
 module OrderImporter
@@ -7,7 +8,8 @@ module OrderImporter
       currency_code     = order_hash[:local_currency_code]
       total_order_value = order_hash[:total_order_value]
 
-      order_hash[:value] = calculate_value(get_gbp_rate(order_date, currency_code), total_order_value)
+      order_hash[:to_gbp_rate] = get_gbp_rate(order_date, currency_code)
+      order_hash[:value]       = calculate_value(order_hash[:to_gbp_rate], total_order_value)
     end
 
     def get_gbp_rate(order_date, currency_code)
@@ -27,7 +29,7 @@ module OrderImporter
     end
 
     def calculate_value(currency_rate, original_value)
-      (original_value.to_f / currency_rate.to_f).round(2)
+      (BigDecimal.new(original_value.to_s) / BigDecimal.new(currency_rate.to_s)).round(2)
     end
   end
 end
