@@ -32,7 +32,7 @@ describe TestConvertible do
     end
   end
 
-  describe "#eur_curreny_to_gbp" do
+  describe "#curreny_to_gbp" do
     subject { converter.curreny_to_gbp(eur_curreny) }
 
     context "when EUR 1.893,23 " do
@@ -45,6 +45,18 @@ describe TestConvertible do
       let(:eur_curreny) { '1.272.893,23' }
       it {should eq '1,272,893.23'}
       it {should_not eq '1.272.893,23'}
+    end
+
+    context "when USD 12345678.90 " do
+      let(:eur_curreny) { '12345678.90' }
+      it {should eq '12,345,678.90'}
+      it {should_not eq '12345678.90'}
+    end
+
+    context "when USD 1234567890 " do
+      let(:eur_curreny) { '1234567890' }
+      it {should eq '1,234,567,890.00'}
+      it {should_not eq '1234567890'}
     end
   end
 

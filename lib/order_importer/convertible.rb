@@ -1,8 +1,13 @@
 module OrderImporter
   module Convertible
 
-    # Use date format %Y-%m-%d to be stored in database
-    # For avoiding the format not match database localisation
+    # Requirement is to return mm-dd-yyyy format
+    #
+    # BUT
+    # Return date format %Y-%m-%d to be stored in database
+    # for avoiding the format not match database localisation
+    #
+    # Render i18n in view for both HTML and JSON format
     def convert_date(date_string)
       converted_date = nil
       date_formats.each do |date_format|
@@ -17,13 +22,24 @@ module OrderImporter
     end
 
     def curreny_to_gbp(curreny_string)
-      separator = curreny_string[curreny_string.length-3]
-      if separator == ','
+      separator    = curreny_string[curreny_string.length-3]
+      major, minor = '', ''
+
+      case separator
+      when ',','.'
         major, minor = curreny_string[0..curreny_string.length-4], curreny_string[curreny_string.length-2..curreny_string.length-1]
-        major.gsub!('.',',')
+        if major[/(,|\.)/]
+          major.gsub!('.',',')
+        else
+          major = add_separator(major)
+        end
         "#{major}.#{minor}"
       else
-        curreny_string
+        if curreny_string[/(,|\.)/]
+          curreny_string
+        else
+          "#{add_separator(curreny_string)}.00"
+        end
       end
     end
 
@@ -41,6 +57,16 @@ module OrderImporter
         '%d-%m-%y', #'dd-mm-yy',
         '%a, %d %b %Y' #strftime, e.g. 'Sat, 10 Nov 2007'
       ]
+    end
+
+    def add_separator(str)
+      reversed = str.reverse
+      result   = ''
+      for i in (0..reversed.length-1) do
+        result << reversed[i]
+        result << ',' if (i+1) % 3 == 0
+      end
+      result.reverse
     end
 
   end
