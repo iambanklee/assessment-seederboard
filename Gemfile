@@ -50,5 +50,5 @@ group :development do
   gem 'guard-rspec', require: false
 end
 
-gem 'open_exchange_rate_checker', path: '/Users/bank/Projects/ror/open_exchange_rate_checker'
+gem 'open_exchange_rate_checker', git: 'https://github.com/iambanklee/open_exchange_rate_checker.git', tag: '0.1.0'
 gem 'bootstrap-sass'

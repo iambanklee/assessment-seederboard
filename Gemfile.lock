@@ -1,7 +1,9 @@
-PATH
-  remote: /Users/bank/Projects/ror/open_exchange_rate_checker
+GIT
+  remote: https://github.com/iambanklee/open_exchange_rate_checker.git
+  revision: d8fc7def0876ebb5d9eb1a614f12a51e9982a3f9
+  tag: 0.1.0
   specs:
-    open_exchange_rate_checker (0.0.1)
+    open_exchange_rate_checker (0.1.0)
 
 GEM
   remote: https://rubygems.org/

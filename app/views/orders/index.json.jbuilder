@@ -13,7 +13,7 @@ json.array!(@orders) do |order|
     json.date l(order.date, format: '%m-%d-%Y')
 
     json.total_order_value do |json|
-      json.local_currency_code order.local_currency_code
+      json.local_currency      order.local_currency_code
       json.local_value         order.total_order_value
       json.value               order.value
     end

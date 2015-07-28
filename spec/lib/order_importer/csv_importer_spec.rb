@@ -6,16 +6,19 @@ describe OrderImporter::CsvImporter do
   describe "::import" do
     file   = File.open("#{Rails.root}/data/order_1.csv", "r")
     result = OrderImporter::CsvImporter.import(file)
-    it { expect(result).to eq true }
+    it { should_not eq true }
+
     file   = File.open("#{Rails.root}/data/order_2.csv", "r")
     result = OrderImporter::CsvImporter.import(file)
-    it { expect(result).to eq true }
+    it { should_not eq true }
+
     file   = File.open("#{Rails.root}/data/order_3.csv", "r")
     result = OrderImporter::CsvImporter.import(file)
-    it { expect(result).to eq true }
+    it { should_not eq eq true }
+
     file   = File.open("#{Rails.root}/data/order_4.csv", "r")
     result = OrderImporter::CsvImporter.import(file)
-    it { expect(result).to eq true }
+    it { should_not eq eq true }
   end
 
 end

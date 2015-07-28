@@ -24,7 +24,7 @@ module OrderImporter
       order_hash[:local_currency_code] = row["Currency"]
       order_hash[:total_order_value]   = curreny_to_gbp(row["Total Order Value"]).gsub(',','')
 
-      # calculate(order_hash)
+      calculate(order_hash)
     end
 
   end
