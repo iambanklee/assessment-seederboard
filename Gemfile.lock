@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/iambanklee/open_exchange_rate_checker.git
+  revision: d8fc7def0876ebb5d9eb1a614f12a51e9982a3f9
+  tag: 0.1.0
+  specs:
+    open_exchange_rate_checker (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,8 +44,14 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.2)
+    autoprefixer-rails (5.1.11)
+      execjs
+      json
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -199,11 +212,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  open_exchange_rate_checker!
   pg
   rails (= 4.2.1)
   rspec
